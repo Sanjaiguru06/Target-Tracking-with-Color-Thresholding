@@ -1,145 +1,72 @@
-# 🎯 Target Tracking with Color Thresholding
+Target Tracking Using Color Thresholding
+Abstract
 
-## 📌 Overview
+This project presents a real-time target tracking system based on color thresholding techniques in computer vision. The system identifies and tracks objects of interest by segmenting specific color ranges in the HSV color space and extracting the target's position from video frames. The implementation demonstrates a computationally efficient approach for object tracking without requiring machine learning models, making it suitable for resource-constrained environments and real-time applications.
 
-This project implements a real-time target tracking system using color thresholding techniques in OpenCV. The system detects and tracks objects of a specified color from a live video stream or recorded video by applying image processing and computer vision techniques.
+Introduction
 
-The project was developed as part of an internship and research work to explore efficient object detection and tracking methods using color segmentation.
+Object tracking is a fundamental task in computer vision with applications in robotics, surveillance, automation, and human-computer interaction. This project investigates the use of color-based segmentation for detecting and tracking a target in real time.
 
----
+By utilizing HSV color thresholding, the system isolates objects of a predefined color range and tracks their movement across consecutive frames. The approach provides a simple yet effective solution for scenarios where the target can be distinguished from its surroundings based on color characteristics.
 
-## 🚀 Features
+Objectives
+Develop a real-time target tracking system using computer vision techniques.
+Implement color-based object detection using HSV thresholding.
+Analyze the effectiveness of color segmentation for target localization.
+Evaluate the performance of the tracking system under varying conditions.
+Methodology
 
-- Real-time object detection and tracking
-- Color-based target identification
-- HSV color space thresholding
-- Noise reduction using image processing techniques
-- Bounding box visualization around detected targets
-- Lightweight and efficient implementation
+The tracking pipeline consists of the following stages:
 
----
+Acquisition of video frames from a camera source.
+Conversion of RGB/BGR images to HSV color space.
+Application of lower and upper HSV threshold values to generate a binary mask.
+Noise reduction using image processing operations.
+Detection of object contours from the segmented image.
+Extraction of object coordinates and tracking information.
+Visualization of the detected target within the video stream.
+Technologies Used
+Python
+OpenCV
+NumPy
+Implementation
 
-## 🛠️ Technologies Used
+The system processes each frame independently and identifies regions matching the predefined color range. Contour analysis is performed on the segmented image to locate the target. The largest valid contour is considered the target object, and its position is continuously updated to achieve tracking.
 
-- Python
-- OpenCV
-- NumPy
+The implementation prioritizes computational efficiency and real-time performance while maintaining detection accuracy for controlled environments.
 
----
+Results
 
-## 📖 Working Principle
+The developed system successfully detects and tracks colored objects in real time under suitable lighting conditions. Experimental observations indicate that tracking accuracy is influenced by:
 
-1. Capture video frames from a webcam or video source.
-2. Convert the frame from BGR color space to HSV color space.
-3. Apply predefined HSV thresholds to isolate the target color.
-4. Generate a binary mask for the detected color.
-5. Perform image processing operations to remove noise.
-6. Detect contours of the target object.
-7. Draw bounding boxes and track the object's movement in real time.
+Illumination variations
+Background color interference
+Camera resolution
+Selection of HSV threshold parameters
 
----
+Despite these limitations, the approach provides reliable performance for applications where target color remains distinguishable from the background.
 
-## 📂 Project Structure
+Applications
+Autonomous robotic systems
+Industrial object monitoring
+Human-computer interaction
+Educational computer vision demonstrations
+Surveillance and tracking systems
+Future Work
 
-```
-Target-Tracking-with-Color-Thresholding/
-│
-├── main.py
-├── requirements.txt
-├── README.md
-├── assets/
-│   ├── sample_output.png
-│   └── demo_video.mp4
-└── src/
-    └── tracking_modules.py
-```
+Future enhancements may include:
 
----
+Multi-object tracking
+Adaptive threshold selection
+Kalman filter-based trajectory prediction
+Integration with deep learning detection models
+Robust operation under dynamic lighting conditions
+Research Significance
 
-## ⚙️ Installation
+This work demonstrates the practical application of classical image processing techniques for real-time target tracking. The study highlights the effectiveness of color thresholding as a lightweight alternative to computationally intensive tracking methods, particularly in scenarios where system resources and latency are critical considerations.
 
-### Clone the Repository
+Author
 
-```bash
-git clone https://github.com/yourusername/Target-Tracking-with-Color-Thresholding.git
-cd Target-Tracking-with-Color-Thresholding
-```
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Or install manually:
-
-```bash
-pip install opencv-python numpy
-```
-
----
-
-## ▶️ Usage
-
-Run the main script:
-
-```bash
-python main.py
-```
-
-The webcam will open, and the system will begin detecting and tracking objects matching the selected color range.
-
-Press `q` to exit.
-
----
-
-## 🎯 Applications
-
-- Surveillance systems
-- Robotics navigation
-- Human-computer interaction
-- Industrial automation
-- Educational computer vision projects
-- Research in object tracking techniques
-
----
-
-## 📊 Results
-
-The system successfully tracks colored objects in real time under controlled lighting conditions. Performance may vary depending on:
-
-- Lighting environment
-- Camera quality
-- Object color similarity in the background
-- HSV threshold selection
-
----
-
-## 🔬 Research Contribution
-
-This project explores the effectiveness of color thresholding for target tracking applications. The implementation demonstrates how HSV-based segmentation can be used as a computationally efficient alternative to complex machine learning models for specific tracking tasks.
-
----
-
-## 📈 Future Improvements
-
-- Multi-object tracking
-- Dynamic color selection
-- Kalman Filter integration
-- Deep Learning-based object detection
-- Tracking performance optimization
-- GUI for color calibration
-
----
-
-## 👨‍💻 Author
-
-**Sanjai Guru**
-B.Tech CSE (AI & ML)
+Sanjai Guru
+B.Tech Computer Science and Engineering (Artificial Intelligence and Machine Learning)
 SRM Institute of Science and Technology
-
----
-
-## 📜 License
-
-This project is intended for educational, research, and learning purposes.
